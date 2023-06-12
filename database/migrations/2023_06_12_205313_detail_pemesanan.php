@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('detail_pemesanan', function (Blueprint $table) {
             $table->id('id_detail');
-            $table->foreignId('id_pemesanan')->constrained('pemesanan');
-            $table->foreignId('id_user')->constrained('id_user');
+            $table->foreignId('id_pemesanan')->constrained('pemesanan', 'id_pemesanan');
+            $table->foreignId('id_menu')->constrained('menu', 'id_menu');
             $table->integer('jumlah');
             $table->timestamps();
-
-            $table->foreign('id_pemesanan')->references('id_pemesanan')->on('pemesanan');
-            $table->foreign('id_menu')->references('id_menu')->on('menu');
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        //
     }
 };

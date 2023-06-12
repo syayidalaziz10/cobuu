@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pemesanan', function (Blueprint $table) {
-            $table->id('id_pemesanan');
-            $table->foreignId('id_user')->constrained('user');
-            $table->date('tanggal_pemesanan');
-            $table->integer('total_biaya');
+        Schema::create('menu', function (Blueprint $table) {
+            $table->id('id_menu');
+            $table->string('nama_menu');
+            $table->integer('harga');
+            $table->integer('stok');
+            $table->foreignId('id_kategori')->constrained('kategori', 'id_kategori');
+            $table->string('gambar')->nullable();
             $table->timestamps();
-
-            $table->foreign('id_user')->references('id_user')->on('user');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        //
     }
 };

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kategori', function (Blueprint $table) {
-            $table->id('id_kategori');
-            $table->string('nama_kategori');
+        Schema::create('pemesanan', function (Blueprint $table) {
+            $table->id('id_pemesanan');
+            $table->foreignId('id_user')->constrained('user', 'id_user');
+            $table->date('tanggal_pemesanan');
+            $table->integer('total_biaya');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        //
     }
 };
