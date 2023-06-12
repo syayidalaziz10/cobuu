@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-1/2 h-full bg-primary bg-no-repeat bg-cover bg-center" style="background-image: url(/img/zilong.png)"></div>
+            <div class="w-1/2 h-full bg-no-repeat bg-cover bg-center" style="background-image: url(/img/zilong.png)"></div>
         </main>
 </body>
 </html>
