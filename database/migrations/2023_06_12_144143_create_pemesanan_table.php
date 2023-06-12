@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('total_biaya', 8, 2);
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id_user')->on('user');
         });
     }
 
