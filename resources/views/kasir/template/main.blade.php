@@ -37,25 +37,6 @@
             background: yellowgreen ;
         }
 
-        primary {
-            color: #8FD2A7;
-        }
-
-        secondary {
-            color: #E3F3E8;
-        }
-
-        content {
-            color: #F4F6F8;
-        }
-
-        caption {
-            color: #353535;
-        }
-
-        fill {
-            color: #FFFFFF;
-        }
         
     </style>
 </head>
