@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->id('id_pemesanan');
-            $table->unsignedBigInteger('id_user');
+            $table->foreignId('id_user')->constrained('user');
             $table->date('tanggal_pemesanan');
             $table->integer('total_biaya');
             $table->timestamps();

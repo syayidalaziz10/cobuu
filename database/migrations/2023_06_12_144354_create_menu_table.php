@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_menu');
             $table->integer('harga');
             $table->integer('stok');
-            $table->unsignedBigInteger('id_kategori');
+            $table->foreignId('id_kategori')->constrained('kategori');
             $table->string('gambar')->nullable();
             $table->timestamps();
 

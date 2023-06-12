@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('detail_pemesanan', function (Blueprint $table) {
             $table->id('id_detail');
-            $table->unsignedBigInteger('id_pemesanan');
-            $table->unsignedBigInteger('id_menu');
+            $table->foreignId('id_pemesanan')->constrained('pemesanan');
+            $table->foreignId('id_user')->constrained('id_user');
             $table->integer('jumlah');
             $table->timestamps();
 
