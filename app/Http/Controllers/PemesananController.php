@@ -56,6 +56,7 @@ class PemesananController extends Controller
     public function index(Request $request)
     {
         // ddd($request);
+        date_default_timezone_set('Asia/Jakarta');
         $now = date('Y-m-d');
         $data = [
             'title' => 'Data Penjualan Hari Ini',
@@ -68,7 +69,7 @@ class PemesananController extends Controller
                                                 INNER JOIN pemesanan AS ps, menu AS mn 
                                                 WHERE dp.id_menu = mn.id_menu 
                                                 AND ps.id_pemesanan = dp.id_pemesanan
-                                                AND ps.tanggal_pemesanan = '2023-14-06'"))[0];
+                                                AND ps.tanggal_pemesanan = '" . $now . "'"))[0];
 
         $data['jumlahMenu'] = DB::select(DB::raw("SELECT SUM(dp.jumlah) AS jumlah
                                                 FROM detail_pemesanan AS dp
