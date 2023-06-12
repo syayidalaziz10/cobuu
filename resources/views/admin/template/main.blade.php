@@ -17,6 +17,9 @@
                     'content' : '#F4F6F8  !important',
                     'caption' : '#353535 !important',
                     'fill' : '#FFFFFF !important',
+                    'color-1' : '#52B69A !important',
+                    'color-2' : '#34A0A3 !important',
+                    'color-3' : '#158AAD !important',
                     }
                 }
             }
