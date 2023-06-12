@@ -4,12 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPemesananTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -27,15 +25,9 @@ class CreateDetailPemesananTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('detail_pemesanan', function (Blueprint $table) {
-            $table->dropForeign(['id_pemesanan']);
-            $table->dropForeign(['id_menu']);
-        });
-        Schema::dropIfExists('detail_pemesanan');
+        Schema::dropIfExists('personal_access_tokens');
     }
-}
+};
