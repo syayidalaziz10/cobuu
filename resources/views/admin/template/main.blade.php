@@ -7,6 +7,21 @@
     @vite('resources/css/app.css')
     <title>{{$title}} | Toko Surya Baru</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                colors: {
+                    'primary':'#8FD2A7 !important',
+                    'secondary' : '#E3F3E8 !important',
+                    'content' : '#F4F6F8  !important',
+                    'caption' : '#353535 !important',
+                    'fill' : '#FFFFFF !important',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
             ::-webkit-scrollbar {
     width: 5px;
@@ -32,7 +47,6 @@
     }
 
     </style>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="font-body bg-content flex w-full">
 
