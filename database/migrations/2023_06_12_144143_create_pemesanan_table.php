@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_pemesanan');
             $table->unsignedBigInteger('id_user');
             $table->date('tanggal_pemesanan');
-            $table->decimal('total_biaya', 8, 2);
+            $table->int('total_biaya');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id_user')->on('user');
