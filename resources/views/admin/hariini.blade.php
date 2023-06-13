@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="w-20 h-20 rounded-xl bg-fill font-bold text-4xl flex items-center justify-center">{{$detail["jmlMenu"]->jml}}</div>
+                            <div class="w-20 h-20 rounded-xl bg-fill font-bold text-4xl flex items-center justify-center">{{$detail["jmlMenu"]}}</div>
                         </div>
                     </div>
                     @endforeach
@@ -63,10 +63,10 @@
                 <div class="flex items-center justify-between">
                     <div class="text-fill">
                         <h1 class="font-bold">{{ $detail["menu"][0]->nama_menu }}</h1>
-                        <p class="font-light">Rp. {{ $detail["menu"][0]->harga }} x {{ $detail["jmlMenu"]->jml }}</p>
+                        <p class="font-light">Rp. {{ $detail["menu"][0]->harga }} x {{ $detail["jmlMenu"] }}</p>
                     </div>
                     <div>
-                        <h1 class="text-fill">Rp. {{ $detail["menu"][0]->harga*$detail["jmlMenu"]->jml }}</h1>
+                        <h1 class="text-fill">Rp. {{ $detail["menu"][0]->harga*$detail["jmlMenu"]}}</h1>
                     </div>
                 </div>
                 @endforeach
