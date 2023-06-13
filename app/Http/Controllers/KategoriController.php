@@ -82,8 +82,8 @@ class KategoriController extends Controller
         $validatedData = $request->validate([
             'nama_kategori' => 'required',
         ]);
-        // Kategori::where('id_kategori', $request->id_kategori)->update($validatedData);
-        Kategori::where('id_kategori', $kategori->id_kategori)->update($validatedData);
+        Kategori::where('id_kategori', $request->id_kategori)->update($validatedData);
+        // Kategori::where('id_kategori', $kategori->id_kategori)->update($validatedData);
         return redirect()->route('admin.kategori')->with('success', 'Success Editing Menu');
     }
 
