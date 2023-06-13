@@ -8,7 +8,7 @@
         <a href="javascript:void(0)" onclick="history.back()" class="text-caption border border-primary py-2 text-base px-10 rounded-3xl bg-fill">Kembali</a>
     </div>
     <div class="mt-12 mb-8">
-        <h1 class="text-caption text-2xl font-bold">DETAIL PEMESANAN TANGGAL {{ $details[0]->tanggal_pemesanan }}</h1>
+        <h1 class="text-caption text-2xl font-bold">DETAIL PEMESANAN</h1>
     </div>
 
     <div class="bg-fill w-full rounded-xl">
