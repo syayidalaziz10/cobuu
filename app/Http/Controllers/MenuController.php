@@ -106,8 +106,8 @@ class MenuController extends Controller
             $validatedData['gambar'] = $request->file('gambar')->store('menu-images');
         }
 
-        Menu::where('id_menu', $request->id_menu)->update($validatedData);
-        // Menu::where('id_menu', $menu->id_menu)->update($validatedData);
+        // Menu::where('id_menu', $request->id_menu)->update($validatedData);
+        Menu::where('id_menu', $menu->id_menu)->update($validatedData);
         return redirect()->route('admin.menu')->with('success', 'Success Editing Menu');
     }
 
