@@ -76,39 +76,52 @@ class PemesananController extends Controller
 
 
 
-        $data['jumlahMenu'] = DB::select(DB::raw("SELECT SUM(dp.jumlah) AS jumlah
-                                                FROM detail_pemesanan AS dp
-                                                INNER JOIN pemesanan AS ps
-                                                WHERE ps.id_pemesanan = dp.id_pemesanan 
-                                                AND ps.tanggal_pemesanan ='2023-06-13'"))[0];
+        $jumlahMenu = DB::table('detail_pemesanan AS dp')
+            ->join('pemesanan AS ps', 'ps.id_pemesanan', '=', 'dp.id_pemesanan')
+            ->where('ps.tanggal_pemesanan', '=', '2023-06-13')
+            ->select(DB::raw('SUM(dp.jumlah) AS jumlah'))
+            ->first();
 
-        $data['banyakMenu'] = DB::select(DB::raw("SELECT COUNT(DISTINCT dp.id_menu) AS banyak
-                                                FROM detail_pemesanan AS dp
-                                                INNER JOIN pemesanan AS ps
-                                                WHERE ps.id_pemesanan = dp.id_pemesanan
-                                                AND ps.tanggal_pemesanan ='2023-06-13'"))[0];
+        $data['jumlahMenu'] = $jumlahMenu->jumlah;
 
-        $data['totalPesanan'] = Pemesanan::where('tanggal_pemesanan', 'like', '%' . $now . '%')->get()->count();
-        $dataNow =  DB::select(DB::raw("SELECT DISTINCT dp.id_menu AS idMenu
-        FROM detail_pemesanan AS dp
-        INNER JOIN pemesanan AS ps
-        WHERE ps.id_pemesanan = dp.id_pemesanan
-        AND ps.tanggal_pemesanan ='2023-06-13'"));
+        $banyakMenu = DB::table('detail_pemesanan AS dp')
+            ->join('pemesanan AS ps', 'ps.id_pemesanan', '=', 'dp.id_pemesanan')
+            ->where('ps.tanggal_pemesanan', '=', '2023-06-13')
+            ->select(DB::raw('COUNT(DISTINCT dp.id_menu) AS banyak'))
+            ->first();
+
+        $data['banyakMenu'] = $banyakMenu->banyak;
+
+
+        $data['totalPesanan'] = Pemesanan::where('tanggal_pemesanan', 'like', '%' . $now . '%')->count();
+
+        $dataNow = DB::table('detail_pemesanan AS dp')
+            ->join('pemesanan AS ps', 'ps.id_pemesanan', '=', 'dp.id_pemesanan')
+            ->where('ps.tanggal_pemesanan', '=', '2023-06-13')
+            ->select('dp.id_menu AS idMenu')
+            ->distinct()
+            ->get();
+
+        $data['dataDetail'] = [];
 
         foreach ($dataNow as $dn) {
+            $jmlMenu = DB::table('detail_pemesanan AS dp')
+                ->join('pemesanan AS ps', 'ps.id_pemesanan', '=', 'dp.id_pemesanan')
+                ->where('dp.id_menu', '=', $dn->idMenu)
+                ->where('ps.tanggal_pemesanan', '=', $now)
+                ->select(DB::raw('SUM(dp.jumlah) AS jml'))
+                ->first();
+
+            $menu = Menu::where('id_menu', '=', $dn->idMenu)->get();
+
             $dataCount = [
-                "jmlMenu" => DB::select(DB::raw("SELECT SUM(dp.jumlah) AS jml
-                                                FROM detail_pemesanan AS dp
-                                                INNER JOIN pemesanan AS ps
-                                                WHERE ps.id_pemesanan = dp.id_pemesanan
-                                                AND dp.id_menu = " . $dn->idMenu . "
-                                                AND ps.tanggal_pemesanan ='" . $now . "'"))[0],
-                "menu" => Menu::where('id_menu', '=', $dn->idMenu)->get()
-
-
+                "jmlMenu" => $jmlMenu->jml,
+                "menu" => $menu
             ];
-            array_push($data["dataDetail"], $dataCount);
+
+            array_push($data['dataDetail'], $dataCount);
         }
+
 
 
         // ddd($data["dataDetail"]);
