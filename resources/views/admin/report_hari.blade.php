@@ -86,7 +86,7 @@
             </div>
             <div>
                 <p class="text-primary">PENDAPATAN HARIAN</p>
-                <h1 class="font-bold text-4xl text-warna-3">RP. {{ $totalPendapatan->total }}</h1>
+                <h1 class="font-bold text-4xl text-warna-3">RP. {{ $totalPendapatan }}</h1>
             </div>
         </div>
 
