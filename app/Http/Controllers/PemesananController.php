@@ -69,26 +69,26 @@ class PemesananController extends Controller
                                                 INNER JOIN pemesanan AS ps, menu AS mn 
                                                 WHERE dp.id_menu = mn.id_menu 
                                                 AND ps.id_pemesanan = dp.id_pemesanan
-                                                AND ps.tanggal_pemesanan = '" . $now . "'"))[0];
+                                                AND ps.tanggal_pemesanan = '2023-06-13'"))[0];
 
         $data['jumlahMenu'] = DB::select(DB::raw("SELECT SUM(dp.jumlah) AS jumlah
                                                 FROM detail_pemesanan AS dp
                                                 INNER JOIN pemesanan AS ps
                                                 WHERE ps.id_pemesanan = dp.id_pemesanan 
-                                                AND ps.tanggal_pemesanan ='" . $now . "'"))[0];
+                                                AND ps.tanggal_pemesanan ='2023-06-13'"))[0];
 
         $data['banyakMenu'] = DB::select(DB::raw("SELECT COUNT(DISTINCT dp.id_menu) AS banyak
                                                 FROM detail_pemesanan AS dp
                                                 INNER JOIN pemesanan AS ps
                                                 WHERE ps.id_pemesanan = dp.id_pemesanan
-                                                AND ps.tanggal_pemesanan ='" . $now . "'"))[0];
+                                                AND ps.tanggal_pemesanan ='2023-06-13'"))[0];
 
         $data['totalPesanan'] = Pemesanan::where('tanggal_pemesanan', 'like', '%' . $now . '%')->get()->count();
         $dataNow =  DB::select(DB::raw("SELECT DISTINCT dp.id_menu AS idMenu
         FROM detail_pemesanan AS dp
         INNER JOIN pemesanan AS ps
         WHERE ps.id_pemesanan = dp.id_pemesanan
-        AND ps.tanggal_pemesanan ='" . $now . "'"));
+        AND ps.tanggal_pemesanan ='2023-06-13'"));
 
         foreach ($dataNow as $dn) {
             $dataCount = [
