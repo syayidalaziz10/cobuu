@@ -62,10 +62,12 @@ Route::get('/password', [UserController::class, 'password'])->name('password');
 Route::post('/password', [UserController::class, 'password_action'])->name('password.action');
 
 
-Route::resource('menu', MenuController::class);
-Route::resource('kategori', KategoriController::class);
+Route::delete('/menu/destroy', [MenuController::class, 'destroy'])->name('menu.destroy');
 Route::post('/menu/update', [MenuController::class, 'update'])->name('menu.update');
+Route::post('/menu/store', [MenuController::class, 'store'])->name('menu.store');
+Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
 Route::post('/kategori/update', [KategoriController::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/destroy', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
 Route::get('/pemesanan/create', [PemesananController::class, 'create'])->name('pemesanan.create');
 Route::post('/pemesanan/store', [PemesananController::class, 'store'])->name('pemesanan.store');
