@@ -30,11 +30,11 @@
                 <div class="flex space-x-7 mb-7">
                     <div class="text-fill bg-primary w-1/2 h-40 rounded-xl px-8 py-6">
                         <p>Total Menu Yang Terjual</p>
-                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $banyakMenu->banyak }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
+                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $banyakMenu }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
                     </div>
                     <div class="text-fill bg-primary w-1/2 h-40 rounded-xl px-8 py-6">
                         <p>Jumlah Menu Yang Terjual</p>
-                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $jumlahMenu->jumlah }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
+                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $jumlahMenu}}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
                     </div>
                 </div>
                 <div class="text-fill bg-primary w-full h-40 rounded-xl px-8 py-6">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="w-20 h-20 rounded-xl bg-fill text-caption font-bold text-4xl flex items-center justify-center">{{$detail["jmlMenu"]->jml}}</div>
+                            <div class="w-20 h-20 rounded-xl bg-fill text-caption font-bold text-4xl flex items-center justify-center">{{$detail["jmlMenu"]}}</div>
                         </div>
                     </div>
                     @endforeach
@@ -80,10 +80,10 @@
                 <div class="flex items-center justify-between">
                     <div class="text-fill">
                         <h1 class="font-bold">{{ $detail["menu"][0]->nama_menu }}</h1>
-                        <p class="font-light">Rp. {{ $detail["menu"][0]->harga }} x {{ $detail["jmlMenu"]->jml }}</p>
+                        <p class="font-light">Rp. {{ $detail["menu"][0]->harga }} x {{ $detail["jmlMenu"] }}</p>
                     </div>
                     <div>
-                        <h1 class="text-fill">Rp. {{ $detail["menu"][0]->harga*$detail["jmlMenu"]->jml }}</h1>
+                        <h1 class="text-fill">Rp. {{ $detail["menu"][0]->harga*$detail["jmlMenu"] }}</h1>
                     </div>
                 </div>
                 @endforeach
@@ -92,7 +92,7 @@
             </div>
             <div>
                 <p class="text-primary">PENDAPATAN BULANAN</p>
-                <h1 class="font-bold text-4xl text-warna-3">RP. {{ $totalPendapatan->total }}</h1>
+                <h1 class="font-bold text-4xl text-warna-3">RP. {{ $totalPendapatan }}</h1>
             </div>
         </div>
 
