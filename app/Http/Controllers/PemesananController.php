@@ -70,7 +70,7 @@ class PemesananController extends Controller
         INNER JOIN menu AS mn ON mn.id_menu = dp.id_menu
         WHERE ps.tanggal_pemesanan = '2023-06-13'";
 
-        $data['totalPendapatan'] = DB::selectRaw($query)[0];
+        $data['totalPendapatan'] = DB::select(DB::raw($query))[0];
 
 
 
