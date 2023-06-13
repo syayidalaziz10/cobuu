@@ -230,7 +230,7 @@
     let stokObj  = document.getElementById('stokEdit');
     let gambarObj      = document.getElementById('gambarEdit');
     let gambarSObj     = document.getElementById('gambarSedit');
-    let formSbm        = document.getElementById('formSbm');
+    // let formSbm        = document.getElementById('formSbm');
 
     function edtMdl(obj)
     {
@@ -243,7 +243,7 @@
         const stok = obj.getAttribute("data-stok");
         const gambar     = obj.getAttribute("data-gambar");
         const gambarS    = obj.getAttribute("data-gambarSkg");
-        formSbm.action   = "http://localhost:8000/menu/"+String(idMenu);
+        // formSbm.action   = "http://localhost:8000/admin/menu/"+String(idMenu);
 
 
         idMenuObj.value = idMenu;
