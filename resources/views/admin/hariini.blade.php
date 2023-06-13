@@ -13,11 +13,11 @@
                 <div class="flex space-x-7 mb-7">
                     <div class="text-fill bg-primary w-1/2 h-40 rounded-xl px-8 py-6">
                         <p>Total Menu Yang Terjual</p>
-                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $banyakMenu->banyak }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
+                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $banyakMenu}}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
                     </div>
                     <div class="text-fill bg-primary w-1/2 h-40 rounded-xl px-8 py-6">
                         <p>Jumlah Menu Yang Terjual</p>
-                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $jumlahMenu->jumlah }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
+                        @if($dataDetail != [])<h1 class="font-bold mt-6 text-5xl">{{ $jumlahMenu }}</h1>@else<h1 class="text-componen font-bold text-2xl">Tidak ada Pemesanan</h1>@endif
                     </div>
                 </div>
                 <div class="text-fill bg-primary w-full h-40 rounded-xl px-8 py-6">
@@ -75,7 +75,7 @@
             </div>
             <div>
                 <p class="text-primary">PENDAPATAN HARI INI</p>
-                <h1 class="font-bold text-4xl text-caption">RP. {{ $totalPendapatan->total }}</h1>
+                <h1 class="font-bold text-4xl text-caption">RP. {{ $totalPendapatan }}</h1>
             </div>
         </div>
 
