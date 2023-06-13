@@ -64,12 +64,14 @@ class PemesananController extends Controller
             'q'     => $request->get('q'),
             'dataDetail' => []
         ];
-        $data['totalPendapatan'] = DB::select(DB::raw("SELECT SUM(dp.jumlah*mn.harga) AS total
-                                                FROM detail_pemesanan AS dp 
-                                                INNER JOIN pemesanan AS ps, menu AS mn 
-                                                WHERE dp.id_menu = mn.id_menu 
-                                                AND ps.id_pemesanan = dp.id_pemesanan
-                                                AND ps.tanggal_pemesanan = '2023-06-13'"))[0];
+        $query = "SELECT SUM(dp.jumlah*mn.harga) AS total
+        FROM detail_pemesanan AS dp
+        INNER JOIN pemesanan AS ps ON ps.id_pemesanan = dp.id_pemesanan
+        INNER JOIN menu AS mn ON mn.id_menu = dp.id_menu
+        WHERE ps.tanggal_pemesanan = '2023-06-13'";
+
+        $data['totalPendapatan'] = DB::select(DB::raw($query))[0];
+
 
         $data['jumlahMenu'] = DB::select(DB::raw("SELECT SUM(dp.jumlah) AS jumlah
                                                 FROM detail_pemesanan AS dp
